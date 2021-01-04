@@ -15,4 +15,9 @@ describe('App', () => {
   it('renders a table', () => {
     expect(screen.getByRole('table')).toBeInTheDocument();
   });
+
+  it('renders a table with 25 x 25 cells', () => {
+    expect(screen.getAllByRole('row').length).toEqual(25);
+    expect(screen.getAllByRole('cell').length).toEqual(625);
+  })
 });
