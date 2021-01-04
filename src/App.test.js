@@ -1,12 +1,17 @@
 import { getByText } from "@testing-library/react";
 
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  it('renders Game Of Life Title', () => {
-    const { getByText } = render(<App />);
+  it('renders Game Of Life title', () => {
+    render(<App />);
 
-    expect(getByText('Game Of Life')).toBeInTheDocument();
+    expect(screen.getByText('Game Of Life')).toBeInTheDocument();
+  });
+
+  it('renders a table', () => {
+    render(<App />);
+    expect(screen.getByRole('table')).toBeInTheDocument();
   });
 });
