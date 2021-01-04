@@ -4,14 +4,15 @@ import { render, screen } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  it('renders Game Of Life title', () => {
+  beforeEach(() => {
     render(<App />);
+  });
 
+  it('renders Game Of Life title', () => {
     expect(screen.getByText('Game Of Life')).toBeInTheDocument();
   });
 
   it('renders a table', () => {
-    render(<App />);
     expect(screen.getByRole('table')).toBeInTheDocument();
   });
 });
