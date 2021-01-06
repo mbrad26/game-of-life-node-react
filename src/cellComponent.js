@@ -1,18 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const CellComponent = ({i, j, data}) => {
   const [cell, setCell] = useState(data);
 
-  console.log('DATA: ', data);
-
   const handleClick = () => {
-    data.state === 0 
-      ? setCell({ ...data, state: 1}) 
-      : setCell({ ...data, state: 0})
+    data.state = data.state === 0 ? 1 : 0;
+    setCell({ ...data });
   };
-
-  useEffect(() => {
-  }, [cell.state]);
 
   return (
     <>
