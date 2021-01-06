@@ -14,11 +14,6 @@ const App = () => {
   const [state, setState] = useState(gameGrid);
 
   console.log('GAME_GRID: ', gameGrid);
-
-  // const handleClick = (i, j) => {
-  //   grid[i][j].state = grid[i][j].state === 0 ? 1: 0;
-  // };
-
   
   useEffect(() => {
     // game.newState();
@@ -36,17 +31,8 @@ const App = () => {
         <tbody>
           {state && state.map((row, i) =>
             <tr key={`row-${i}`}>
-              {row.map((cell, j) => {
-                console.log('TABLE_CELL: ', cell);
-                return <CellComponent key={j} i={i} j={j} data={cell} />
-              }
-                // <td 
-                //   data-testid={`${i}-${j}`}
-                //   key={j}
-                //   style={{'background': cell.state === 1 ? 'black' : 'white'}}
-                //   // onClick={() => handleClick(i, j)}
-                // >
-                // </td>
+              {row.map((cell, j) => 
+                <CellComponent key={j} i={i} j={j} data={cell} />
               )}
             </tr>
           )}
